@@ -21,7 +21,7 @@ bb <- seq(-2, 5, length.out=50)
 xyz <- outer(aa, bb, like)
 
 image(aa, bb, xyz)
-contour(aa, bb, xyz, add=T, nlevels=100)
+contour(aa, bb, xyz, add=T, nlevels=200)
 
 start <- c(runif(1, -3, 3), runif(1, -3, 3))
 path <- start

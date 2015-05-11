@@ -1,2 +1,2 @@
 # stats
-Visualization of Newton-Raphson method convergence.
+Visualization of batch Newton-Raphson method convergence.

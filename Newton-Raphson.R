@@ -1,6 +1,6 @@
 # Generate some points.
 secret.mu <- c(1, 3)
-total.points <- 400
+total.points <- 1000
 da <- c(secret.mu[1] + rnorm(total.points * 0.25),
         secret.mu[2] + rnorm(total.points * 0.75))
 
@@ -23,11 +23,12 @@ xyz <- outer(aa, bb, like)
 image(aa, bb, xyz)
 contour(aa, bb, xyz, add=T, nlevels=200)
 
-start <- c(runif(1, -3, 3), runif(1, -3, 3))
+start <- c(runif(1, -2, 5), runif(1, -2, 5))
+#start <- c(3, 2)
 path <- start
-for (i in 1:nlm(like.mu, start)$iterations) {
+for (i in 1:nlm(like.mu, start, stepmax=10)$iterations) {
   path <- rbind(path,
-                nlm(like.mu, start, iterlim = i)$estimate)
+                nlm(like.mu, start, iterlim=i, stepmax=10)$estimate)
 }
 lines(path, pch=19,col = "blue", lwd = 3)
 print(path)
